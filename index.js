@@ -18,21 +18,21 @@ app.get('/', function(req, res){
 app.use('/peerjs', expresspeerserver);
 
 expresspeerserver.on('connection', function (id) {
-	var now = new Date();
+
 	peers.push(id);
     console.log('[peer]','connecting peer id:', id);
-	io.emit('message', {'message': now.toLocaleString() + ' connecting peer id : ' + id});
+	io.emit('message', {'message': new Date() + ' connecting peer id : ' + id});
+
 });
  
 expresspeerserver.on('disconnect', function (id) {
 	
-	var now = new Date();
-	
 	if (peers.indexOf(id) !== -1) {
 		peers.splice(peers.indexOf(id), 1);
 	}
+	
 	console.log('[peer]', 'disconnecting peer id:', id);
-	io.emit('message', {'message':  now.toLocaleString() + ' disconnecting peer id : ' + id});
+	io.emit('message', {'message':  new Date() + ' disconnecting peer id : ' + id});
 });
 
 
