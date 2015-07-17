@@ -3,7 +3,7 @@ var app = express();
 var http = require('http');
 var server = http.createServer(app);
 var ExpressPeerServer = require('peer').ExpressPeerServer;
-var options = {debug: true};
+var options = {key : 'peerjs',debug: true};
 var expresspeerserver = ExpressPeerServer(server, options);
 var peers = [];
 var http_port = (process.env.PORT || 5000);
@@ -14,7 +14,7 @@ app.get('/', function(req, res){
     res.sendFile(__dirname + 'index.html');
 });
 
-app.use('/peerjs', expresspeerserver);
+app.use('/', expresspeerserver);
 
 expresspeerserver.on('connection', function (id) {
     console.log('[peer]','connecting peer id:', id);
