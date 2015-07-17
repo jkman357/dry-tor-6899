@@ -15,18 +15,15 @@ app.get('/', function(req, res){
 //var http = require('http').Server(app);
 //var httpsocket = require('socket.io')(http);
 
-//var PeerServer = require('peer').PeerServer;
-//var	PEER_PORT = process.env.PORT || 9000;
-//var EXPRESS_PORT = process.env.PORT || 5000;
-/*
+var PeerServer = require('peer').PeerServer;
+var	PEER_PORT = process.env.PORT || 9000;
 var options = {
 	port: PEER_PORT,
 	path: '/',
 	key: 'peerjs'
 };
-*/
-//var server = new PeerServer(options);
-//var peers = [];
+var peerjs_server = new PeerServer(options);
+var peers = [];
 
 
 //httpsocket.on('connection', function(socket){
@@ -38,22 +35,21 @@ http.listen(EXPRESS_PORT, function(){
 });
 */
 
-/*
-server.on('connection', function (id) {
-	var now = new Date();
+
+peerjs_server.on('connection', function (id) {
+	//var now = new Date();
 	peers.push(id);
 	console.log('[peer]','connecting peer id:', id);
-	httpsocket.emit('message', {'message': now.toLocaleString() + ' connecting peer id : ' + id});
+	//httpsocket.emit('message', {'message': now.toLocaleString() + ' connecting peer id : ' + id});
 });
 
-server.on('disconnect', function (id) {
-	var now = new Date();
+peerjs_server.on('disconnect', function (id) {
+	//var now = new Date();
 	
 	if (peers.indexOf(id) !== -1) {
 		peers.splice(peers.indexOf(id), 1);
 	}
 	
 	console.log('[peer]', 'disconnecting peer id:', id);
-	httpsocket.emit('message', {'message':  now.toLocaleString() + ' disconnecting peer id : ' + id});
+	//httpsocket.emit('message', {'message':  now.toLocaleString() + ' disconnecting peer id : ' + id});
 });
-*/
