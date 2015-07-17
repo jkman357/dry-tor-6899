@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>PeerJS Server Demo</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="Content-Language" content="en-us">
+		<script src="public/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="public/bower_components/socket.io/socket.io.js""></script>
+	</head>
+	<style>
+		div.blackstyle {
+						background-color:black;
+						color:white;
+						margin:20px;
+						padding:20px;
+		}
+		
+	</style>
+	<body>
+		<script type="text/javascript">
+			
+			var socket = io.connect();
+			
+			socket.on('message', function(data){
+				$('#inputText').val($('#inputText').val()+data.message + '\r\n');			
+			});
+			
+		</script>
+
+		<div class="blackstyle">
+		<h2>Hello everyone, welcome to my home page.</h2>
+		<h2>This Private PeerJS Server is for client to client communication testing by created Ray Yang.</h2>
+		<h2>The Hello World example is <a href = "./public/client_page.html" target="_blank">here.</a></h2> 	
+		</div>
+		
+		<h1 style="text-align:center">Server Logfile</h1>
+		
+		<!--<textarea id="inputText" rows="20" style="width:75%;margin-left:5%;"></textarea>
+		-->
+		<textarea id="inputText" rows="20" style="width:95%"></textarea>
+	</body>
+</html>
