@@ -1,15 +1,15 @@
-var express = require('express');
-var app = express().use(express.static(__dirname + '/'));
+//var express = require('express');
+//var app = express().use(express.static(__dirname + '/'));
 
-app.set('express_port', (process.env.PORT || 5000));
+//app.set('express_port', (process.env.PORT || 5000));
 
-app.listen(app.get('express_port'), function() {
-  console.log('Node app is running on port', app.get('express_port'));
-});
+//app.listen(app.get('express_port'), function() {
+//  console.log('Node app is running on port', app.get('express_port'));
+//});
 
-app.get('/', function(req, res){
-    res.sendFile(__dirname + 'index.html');
-});
+//app.get('/', function(req, res){
+//    res.sendFile(__dirname + 'index.html');
+//});
 
 
 //var http = require('http').Server(app);
