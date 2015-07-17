@@ -6,7 +6,7 @@ var ExpressPeerServer = require('peer').ExpressPeerServer;
 var options = {debug: true};
 var expresspeerserver = ExpressPeerServer(server, options);
 var peers = [];
-var http_port = (3000);
+var http_port = (process.env.PORT || 3000);
 
 app.use(express.static(__dirname + '/'));
 
