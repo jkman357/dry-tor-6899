@@ -16,13 +16,14 @@ app.get('/', function(req, res){
 //var httpsocket = require('socket.io')(http);
 
 var PeerServer = require('peer').PeerServer;
-var	PEER_PORT = 9000;
+var	PEER_PORT = (process.env.PORT || 9000);
 var options = {
 	port: PEER_PORT,
 	path: '/',
 	key: 'peerjs'
 };
 var peerjs_server = new PeerServer(options);
+
 var peers = [];
 
 
