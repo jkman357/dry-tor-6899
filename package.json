@@ -1,15 +1,16 @@
 {
   "name": "abcd4web",
   "version": "0.0.1",
+  "description": "",
   "main": "index.js",
   "dependencies": {
+    "peer": "^0.2.8",
     "express": "^4.13.1"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "author": "Ray Yang",
+  "license": "ISC"
 }
